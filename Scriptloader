@@ -1,0 +1,41 @@
+repeat task.wait() until game:IsLoaded()
+
+--// Services \\--
+local Players = game:GetService("Players")
+local Lighting = game:GetService("Lighting")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local CoreGui = game:GetService("CoreGui")
+local HttpService = game:GetService("HttpService")
+
+--// Variables \\--
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local Camera = workspace.CurrentCamera
+
+--// Checking \\--
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+
+if not getgenv then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostPlayer352/Test4/main/UnsupportedExecutor.lua"))()
+	return
+end
+
+--// Settings \\--
+getgenv().script_key = nil
+getgenv().script_mode = "Normal" -- Normal / Lite / Custom
+
+--// Interface Check (key system) \\--
+local IsInterfaceEnabled = function()
+	return false -- Desativa sistema de key
+end
+
+local InterfaceEnabled = IsInterfaceEnabled()
+
+if not InterfaceEnabled then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostPlayer352/Blade-Ball/main/Main.lua"))()
+end
